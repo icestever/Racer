@@ -27,7 +27,7 @@ font = pygame.font.SysFont("Verdana", 60)
 font_small = pygame.font.SysFont("Verdana", 20)
 game_over = font.render("Game Over", True, WHITE)
 
-background = pygame.image.load("im/AnimatedStreet.png")
+background = pygame.image.load("AnimatedStreet.png")
 
 
 DISPLAYSURF = pygame.display.set_mode((400, 600))
@@ -35,15 +35,15 @@ DISPLAYSURF.fill(WHITE)
 pygame.display.set_caption("Game")
 
 
-pygame.mixer.music.load('im/background.wav')
-pygame.mixer.music.play(-1)
+#pygame.mixer.music.load('background.wav')
+#pygame.mixer.music.play(-1)
 
 
 class Enemy(pygame.sprite.Sprite):
     
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load("im/Enemy-2.png")
+        self.image = pygame.image.load("Enemy.png")
         self.rect = self.image.get_rect()
         self.rect.center = (random.randint(40, SCREEN_WIDTH - 40), 0)
     
@@ -61,7 +61,7 @@ class Player(pygame.sprite.Sprite):
     
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load("im/Player-2.png")
+        self.image = pygame.image.load("Player.png")
         self.rect = self.image.get_rect()
         self.rect.center = (160, 520)
     
@@ -79,7 +79,7 @@ class Coin(pygame.sprite.Sprite):
     
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load("im/ic1.png")
+        self.image = pygame.image.load("ic1.png")
         self.rect = self.image.get_rect()
         self.rect.center = (random.randint(40, SCREEN_WIDTH - 40), 0)
 
@@ -94,7 +94,7 @@ class Coin(pygame.sprite.Sprite):
 class BigCoin(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load('im/ic2.png')
+        self.image = pygame.image.load('ic2.png')
         self.rect = self.image.get_rect()
     def move(self):
         self.rect.move_ip(0, SPEED)
@@ -164,7 +164,7 @@ while True:
 
 
     if pygame.sprite.spritecollideany(P1, enemies):
-        pygame.mixer.Sound('im/crash.wav').play()
+        pygame.mixer.Sound('crash.wav').play()
         time.sleep(0.5)
 
         DISPLAYSURF.fill(BLUE)
